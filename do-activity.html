@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap"
+      rel="stylesheet"
+    />
+    <title>Bored Activity</title>
+    <style>
+      body {
+        font-family: "Sriracha", cursive;
+        background-image: linear-gradient(45deg, rgb(122, 46, 38), tomato);
+        color: rgb(255, 245, 203);
+        text-decoration: none;
+        font-size: 30px;
+        text-align: center;
+      }
+      body h2 a {
+        color: rgb(228, 226, 222);
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="activity"></h1>
+    <h2><a id="explore-link" href="#">Check It Out</a></h2>
+
+    <script>
+      function someActivity() {
+        fetch("http://www.boredapi.com/api/activity/")
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("activity").innerText = data.activity;
+          });
+      }
+      someActivity();
+      setInterval(() => {
+        someActivity();
+      }, 10000);
+    </script>
+  </body>
+</html>
